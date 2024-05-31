@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: titilerx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: titilerx
+  template:
+    metadata:
+      labels:
+        app: titilerx
+    spec:
+      containers:
+        - name: titilerx
+          image: your-titiler-image:tag
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
