@@ -232,6 +232,7 @@ class ZarrTilerFactory(BaseTilerFactory):
         ) -> Response:
             """Create map tile from a dataset."""
             tms = self.supported_tms.get(tileMatrixSetId)
+            print(f"starting reader with variable {variable} and group {z if multiscale else None}")
             with self.reader(
                 url,
                 variable=variable,
@@ -243,18 +244,22 @@ class ZarrTilerFactory(BaseTilerFactory):
                 tms=tms,
                 consolidated=consolidated,
             ) as src_dst:
-
+                print(f"getting tile {x}, {y}, {z}")
                 image = src_dst.tile(
                     x, y, z, tilesize=scale * 256, nodata=src_dst.input.rio.nodata
                 )
+                print("end getting tile")
 
             if post_process:
+                print("starting post process")
                 image = post_process(image)
 
             if rescale:
+                print("rescaling")
                 image.rescale(rescale)
 
             if color_formula:
+                print("applying color formula")
                 image.apply_color_formula(color_formula)
 
             content, media_type = render_image(
