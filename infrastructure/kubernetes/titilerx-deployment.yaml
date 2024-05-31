@@ -18,3 +18,6 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
+          env:
+            - name: TITILER_XARRAY_CACHE_HOST
+              value: titilerx-redis
