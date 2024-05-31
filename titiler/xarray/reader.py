@@ -145,6 +145,14 @@ def arrange_coordinates(da: xarray.DataArray) -> xarray.DataArray:
         if "longitude" in da.dims:
             longitude_var_name = "longitude"
         da = da.rename({latitude_var_name: "y", longitude_var_name: "x"})
+
+    # remove coordinates that are not time, x, or y
+    if "lat" in da.coords:
+        da = da.drop_vars("lat")
+
+    if "lon" in da.coords:
+        da = da.drop_vars("lon")
+
     if "time" in da.dims:
         da = da.transpose("time", "y", "x")
     else:
