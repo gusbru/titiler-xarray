@@ -194,8 +194,8 @@ def get_variable(
             da = da.sel(
                 time=numpy.array(time_as_str, dtype=numpy.datetime64), method="nearest"
             )
-        else:
-            da = da.isel(time=0)
+        # else:
+        #     da = da.isel(time=0)
 
     return da
 
