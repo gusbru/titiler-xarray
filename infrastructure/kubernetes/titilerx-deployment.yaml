@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: titilerx
-          image: your-titiler-image:tag
+          image: public.ecr.aws/k4l9p8h0/eoepca/titilerx:0.0.1
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
