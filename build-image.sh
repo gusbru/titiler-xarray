@@ -1,5 +1,5 @@
 #!/bin/bash
 
 # Build the Docker image
-docker build -t public.ecr.aws/k4l9p8h0/eoepca/titilerx:0.0.3 .
-docker push public.ecr.aws/k4l9p8h0/eoepca/titilerx:0.0.3
+docker build -t public.ecr.aws/k4l9p8h0/eoepca/titilerx:0.0.4 .
+docker push public.ecr.aws/k4l9p8h0/eoepca/titilerx:0.0.4

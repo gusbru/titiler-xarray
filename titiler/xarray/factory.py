@@ -521,7 +521,7 @@ class ZarrTilerFactory(BaseTilerFactory):
         ):
             """Return map Viewer."""
             templates = Jinja2Templates(
-                directory="",
+                directory="./",
                 loader=jinja2.ChoiceLoader([jinja2.PackageLoader(__package__, ".")]),
             )
             if url:
