@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: titilerx-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
+    spec.ingressClassName: nginx
 spec:
   rules:
     - host: titilerx.eks.dec.earthdaily.com
